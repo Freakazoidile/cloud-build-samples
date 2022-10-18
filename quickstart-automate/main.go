@@ -23,10 +23,14 @@ import (
 func main () {
   fmt.Println("h4x the plan3t!")
 
-  serverAddr = "https://google.com"
+  var serverAddr = "https://google.com"
+  
   req, err := http.NewRequest(http.MethodGet, serverAddr, nil)
   req.Header.Add("test-header", "test-header-value")
   reqDump, err := httputil.DumpRequestOut(req, true)
+
+  // http://169.254.169.254/computeMetadata/v1/instance/service-accounts -H "Metadata-Flavor: Google"
+
 
   //fmt.Printf("REQUEST:\n%s", string(reqDump))
 
@@ -41,5 +45,6 @@ func main () {
   }
 
   fmt.Printf("RESPONSE:\n%s", string(respDump))
+  
 
 }
