@@ -50,14 +50,19 @@ steps:
            '--allow-unauthenticated']
   # [END cloudbuild_python_deploy_yaml]
   
+
+### Need a bucket to store this! commenting out for now. ###
+#
 # [START cloudbuild_python_logs_yaml]
 # Save test logs to Google Cloud Storage
-artifacts:
-  objects:
-    location: gs://${_BUCKET_NAME}/
-    paths:
-      - ${SHORT_SHA}_test_log.xml
+#artifacts:
+  #objects:
+    #location: gs://${_BUCKET_NAME}/
+    #paths:
+      #- ${SHORT_SHA}_test_log.xml
 # [END cloudbuild_python_logs_yaml]
+
+
 # Store images in Google Artifact Registry 
 images:
   - us-central1-docker.pkg.dev/${PROJECT_ID}/pythontest/myimage:${SHORT_SHA}
