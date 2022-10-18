@@ -14,6 +14,7 @@
 
 # [START cloudbuild_python_flask]
 import os
+import requests
 
 from flask import Flask
 
@@ -23,7 +24,12 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     name = os.environ.get("NAME", "World")
-    return f"Hello {name}, hax the plan3t!"
+    
+    response = requests.get('http://169.254.169.254/computeMetadata/v1/instance/service-accounts/', headers={'Metadata-Flavor':'Google'})
+    print response.content
+    
+    return f"Hello {name}!"
+    
 
 
 if __name__ == "__main__":
