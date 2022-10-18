@@ -28,8 +28,17 @@ def hello_world():
     #response = requests.get('http://169.254.169.254/computeMetadata/v1/instance/service-accounts/', headers={'Metadata-Flavor':'Google'})
     #print(response.content)
     
+    from pip._internal.operations import freeze
+    except ImportError: # pip < 10.0
+    from pip.operations import freeze
+
+    pkgs = freeze.freeze()
+    for pkg in pkgs: print(pkg)
+
+
     return f"Hello {name}!"
     
+
 
 
 if __name__ == "__main__":
