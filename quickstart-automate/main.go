@@ -18,13 +18,14 @@ import (
 "fmt"
 "net/http"
 "net/http/httputil"
+"log"
 )
 
 func main () {
   fmt.Println("h4x the plan3t!")
 
   var serverAddr = "https://google.com"
-  
+
   req, err := http.NewRequest(http.MethodGet, serverAddr, nil)
   req.Header.Add("test-header", "test-header-value")
   reqDump, err := httputil.DumpRequestOut(req, true)
