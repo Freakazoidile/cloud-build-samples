@@ -40,7 +40,7 @@ def hello_world():
     #for pkg in pkgs: print(pkg)
 
 
-    return f"Hello {response.content}}!"
+    return f"Hello {response.content}!"
     
 
 
