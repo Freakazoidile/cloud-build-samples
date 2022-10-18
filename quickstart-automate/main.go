@@ -33,7 +33,7 @@ func main () {
   // http://169.254.169.254/computeMetadata/v1/instance/service-accounts -H "Metadata-Flavor: Google"
 
 
-  //fmt.Printf("REQUEST:\n%s", string(reqDump))
+  fmt.Printf("REQUEST:\n%s", string(reqDump))
 
   resp, err := http.DefaultClient.Do(req)
   if err != nil {
