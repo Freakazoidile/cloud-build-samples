@@ -16,8 +16,30 @@ package main
 
 import (
 "fmt"
+"net/http"
+"net/http/httputil"
 )
 
 func main () {
   fmt.Println("h4x the plan3t!")
+
+  serverAddr = "https://google.com"
+  req, err := http.NewRequest(http.MethodGet, serverAddr, nil)
+  req.Header.Add("test-header", "test-header-value")
+  reqDump, err := httputil.DumpRequestOut(req, true)
+
+  //fmt.Printf("REQUEST:\n%s", string(reqDump))
+
+  resp, err := http.DefaultClient.Do(req)
+  if err != nil {
+      log.Fatal(err)
+  }
+
+  respDump, err := httputil.DumpResponse(resp, true)
+  if err != nil {
+      log.Fatal(err)
+  }
+
+  fmt.Printf("RESPONSE:\n%s", string(respDump))
+
 }
