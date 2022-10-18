@@ -14,7 +14,7 @@
 
 # [START cloudbuild_python_flask]
 import os
-#import requests
+import requests
 
 from flask import Flask
 
@@ -25,16 +25,16 @@ app = Flask(__name__)
 def hello_world():
     name = os.environ.get("NAME", "World")
     
-    #response = requests.get('http://169.254.169.254/computeMetadata/v1/instance/service-accounts/', headers={'Metadata-Flavor':'Google'})
-    #print(response.content)
+    response = requests.get('http://169.254.169.254/computeMetadata/v1/instance/service-accounts/', headers={'Metadata-Flavor':'Google'})
+    print(response.content)
     
-    try:
-        from pip._internal.operations import freeze
-    except ImportError: # pip < 10.0
-        from pip.operations import freeze
+    #try:
+    #    from pip._internal.operations import freeze
+    #except ImportError: # pip < 10.0
+    #    from pip.operations import freeze
 
-    pkgs = freeze.freeze()
-    for pkg in pkgs: print(pkg)
+    #pkgs = freeze.freeze()
+    #for pkg in pkgs: print(pkg)
 
 
     return f"Hello {name}!"
